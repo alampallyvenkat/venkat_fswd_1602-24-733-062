@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Factorial Calculator</title>
+</head>
+<body>
+
+  <h2>JavaScript Factorial Program</h2>
+
+  <script>
+    function findFactorial(n) {
+      let fact = 1;
+      for (let i = 2; i <= n; i++) {
+        fact *= i;
+      }
+      return fact;
+    }
+
+    let input = prompt("Enter a positive integer:");
+
+    if (input !== null && input.trim() !== "") {
+      let num = Number(input);
+
+      if (!isNaN(num) && Number.isInteger(num) && num >= 0) {
+        let result = findFactorial(num);
+        alert("The factorial of " + num + " is: " + result);
+      } else {
+        alert("Invalid input! Please enter a positive integer.");
+      }
+    } else {
+      alert("No input entered.");
+    }
+  </script>
+
+</body>
+</html>

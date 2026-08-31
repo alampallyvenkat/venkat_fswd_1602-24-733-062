@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f4f6f8;
+    }
+
+    fieldset {
+      max-width: 650px;
+      margin: 0 auto;
+      border: 2px solid #5a52c7;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+
+    legend {
+      color: #5a52c7;
+      font-weight: bold;
+      font-size: 15px;
+      padding: 0 8px;
+    }
+
+    .row {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .label-name    { color: #1d6996; }
+    .label-email   { color: #386641; }
+    .label-phone   { color: #a44a3f; }
+    .label-subject { color: #800020; }
+    .label-rating  { color: #800020; }
+    .label-comment { color: #2d6a4f; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      padding: 8px 12px;
+      border: 1px solid #d3d3d3;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .bg-name    { background-color: #eaf4fc; }
+    .bg-email   { background-color: #eef8eb; }
+    .bg-phone   { background-color: #fff4e3; }
+    .bg-subject { background-color: #fde8ed; }
+    .bg-comment { background-color: #e6f9f0; height: 90px; resize: vertical; }
+
+    .rating-options {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .rating-options label {
+      font-weight: normal;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+
+    .bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .checkbox-group label {
+      font-weight: normal;
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      padding: 6px 16px;
+      border: 1px solid #c4c4c4;
+      border-radius: 6px;
+      background-color: #ffffff;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #eaeaea;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Notice: onsubmit="event.preventDefault();" prevents the 405 error -->
+  <form onsubmit="event.preventDefault(); alert('Form submitted successfully!');">
+    <fieldset>
+      <legend>Send feedback about our service:</legend>
+
+      <!-- Row 1: Name, Email, Phone -->
+      <div class="row">
+        <div class="col">
+          <label class="label-name" for="name">Name:</label>
+          <input type="text" id="name" name="name" class="bg-name" placeholder="your name">
+        </div>
+        <div class="col">
+          <label class="label-email" for="email">E-mail:</label>
+          <input type="email" id="email" name="email" class="bg-email" placeholder="your email">
+        </div>
+        <div class="col">
+          <label class="label-phone" for="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone" class="bg-phone" placeholder="your phone">
+        </div>
+      </div>
+
+      <!-- Row 2: Subject & Rating -->
+      <div class="row">
+        <div class="col">
+          <label class="label-subject" for="subject">Subject:</label>
+          <select id="subject" name="subject" class="bg-subject">
+            <option value="general">General inquiry</option>
+            <option value="support">Technical Support</option>
+            <option value="billing">Billing Inquiry</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <label class="label-rating">Rate our service:</label>
+          <div class="rating-options">
+            <label><input type="radio" name="rating" value="good"> Good</label>
+            <label><input type="radio" name="rating" value="average"> Average</label>
+            <label><input type="radio" name="rating" value="poor"> Poor</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3: Comment -->
+      <div class="row">
+        <div class="col">
+          <label class="label-comment" for="comment">Comment:</label>
+          <textarea id="comment" name="comment" class="bg-comment" placeholder="your comment"></textarea>
+        </div>
+      </div>
+
+      <!-- Row 4: Subscribe Checkbox & Action Buttons -->
+      <div class="bottom-row">
+        <div class="checkbox-group">
+          <input type="checkbox" id="subscribe" name="subscribe">
+          <label for="subscribe">Subscribe to newsletter</label>
+        </div>
+
+        <div class="btn-group">
+          <button type="submit" class="btn">Send</button>
+          <button type="reset" class="btn">Reset</button>
+          <button type="button" class="btn" onclick="this.form.reset();">Cancel</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+</body>
+</html>

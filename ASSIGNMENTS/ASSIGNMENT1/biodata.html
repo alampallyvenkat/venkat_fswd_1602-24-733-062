@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Biodata - Venkat</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fdfae7;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 850px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .header {
+      background-color: #e5a910;
+      color: #ffffff;
+      text-align: center;
+      padding: 16px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .content {
+      padding: 35px 40px;
+    }
+
+    h2 {
+      color: #e5a910;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .profile-section {
+      display: flex;
+      gap: 50px;
+      align-items: flex-start;
+      margin-bottom: 35px;
+    }
+
+    .image-box {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid #e5a910;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .image-caption {
+      font-size: 14px;
+      color: #777777;
+    }
+
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .details-table td {
+      padding: 7px 0;
+      font-size: 15px;
+    }
+
+    .details-table td.label {
+      font-weight: bold;
+      color: #333333;
+      width: 160px;
+    }
+
+    .details-table td.value {
+      color: #555555;
+    }
+
+    .about-section {
+      margin-bottom: 35px;
+    }
+
+    .about-section p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #555555;
+      text-align: justify;
+    }
+
+    .skills-section {
+      margin-bottom: 25px;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-pill {
+      background-color: #dad9d3;
+      color: #444444;
+      border: 1.5px solid #381a71;
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .footer {
+      background-color: #fdfae7;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #666666;
+      border-top: 1px solid #f3eed0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="header">
+      Student Biodata
+    </div>
+
+    <div class="content">
+      <!-- Profile & Personal Details -->
+      <div class="profile-section">
+        <div class="image-box">
+          <img src="profile.jpg" alt="Venkat" class="profile-img">
+          <div class="image-caption">Venkat</div>
+        </div>
+
+        <div style="flex: 1;">
+          <h2>Personal Details</h2>
+          <table class="details-table">
+            <tr>
+              <td class="label">Name:</td>
+              <td class="value">Venkat</td>
+            </tr>
+            <tr>
+              <td class="label">Roll No:</td>
+              <td class="value">1602-24-733-062</td>
+            </tr>
+            <tr>
+              <td class="label">Course:</td>
+              <td class="value">B.E.</td>
+            </tr>
+            <tr>
+              <td class="label">Branch:</td>
+              <td class="value">Computer Science and Engineering</td>
+            </tr>
+            <tr>
+              <td class="label">Semester:</td>
+              <td class="value">V</td>
+            </tr>
+            <tr>
+              <td class="label">Academic Year:</td>
+              <td class="value">2026-27</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- About Me -->
+      <div class="about-section">
+        <h2>About Me</h2>
+        <p>
+          Hello! I am Venkat, a Computer Science and Engineering student who enjoys exploring technology and 
+          learning new concepts. I am interested in full-stack development, programming, artificial intelligence, 
+          and machine learning. I enjoy solving problems, working on practical projects, and improving my technical 
+          skills through continuous learning.
+        </p>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="skills-section">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+          <span class="skill-pill">MERN Stack</span>
+          <span class="skill-pill">C</span>
+          <span class="skill-pill">C++</span>
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">MATLAB</span>
+          <span class="skill-pill">AI</span>
+          <span class="skill-pill">ML</span>
+          <span class="skill-pill">CN</span>
+          <span class="skill-pill">DBMS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      © 2026 Venkat | Full Stack Web Development
+    </div>
+  </div>
+
+</body>
+</html>

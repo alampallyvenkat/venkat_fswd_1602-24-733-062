@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Course Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .courses {
+            margin-top: 10px;
+        }
+
+        .courses input {
+            width: auto;
+            margin-right: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eee;
+            border-radius: 5px;
+            display: none;
+        }
+
+        #result h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Online Course Registration</h1>
+
+        <form>
+
+            <label for="name">Student Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number">
+
+            <label>Select Course(s)</label>
+
+            <div class="courses">
+                <input type="checkbox" value="Python" data-fee="3000" data-duration="8 Weeks" data-eligibility="Basic Programming Knowledge" onchange="calculateFee()">
+                Python Programming - ₹3000
+                <br><br>
+
+                <input type="checkbox" value="Web Development" data-fee="4000" data-duration="10 Weeks" data-eligibility="Basic Computer Knowledge" onchange="calculateFee()">
+                Web Development - ₹4000
+                <br><br>
+
+                <input type="checkbox" value="Data Science" data-fee="5000" data-duration="12 Weeks" data-eligibility="Python Basics" onchange="calculateFee()">
+                Data Science - ₹5000
+                <br><br>
+
+                <input type="checkbox" value="AI & ML" data-fee="6000" data-duration="14 Weeks" data-eligibility="Python and Mathematics" onchange="calculateFee()">
+                AI & ML - ₹6000
+            </div>
+
+            <label for="mode">Learning Mode</label>
+            <select id="mode">
+                <option>Online</option>
+                <option>Offline</option>
+                <option>Hybrid</option>
+            </select>
+
+            <button type="button" onclick="register()">Register Now</button>
+
+        </form>
+
+        <div id="result">
+            <h3>Course Details</h3>
+            <p><strong>Selected Courses:</strong> <span id="selectedCourses"></span></p>
+            <p><strong>Total Fee:</strong> ₹<span id="totalFee">0</span></p>
+            <p><strong>Duration:</strong> <span id="duration"></span></p>
+            <p><strong>Eligibility:</strong> <span id="eligibility"></span></p>
+        </div>
+
+    </div>
+
+    <script>
+        function calculateFee() {
+            let courses = document.querySelectorAll('.courses input[type="checkbox"]');
+
+            let totalFee = 0;
+            let selected = [];
+            let durations = [];
+            let eligibility = [];
+
+            courses.forEach(function(course) {
+                if (course.checked) {
+                    totalFee += Number(course.dataset.fee);
+                    selected.push(course.value);
+                    durations.push(course.dataset.duration);
+                    eligibility.push(course.dataset.eligibility);
+                }
+            });
+
+            document.getElementById("totalFee").textContent = totalFee;
+            document.getElementById("selectedCourses").textContent =
+                selected.length > 0 ? selected.join(", ") : "None";
+
+            document.getElementById("duration").textContent =
+                durations.length > 0 ? durations.join(", ") : "Not selected";
+
+            document.getElementById("eligibility").textContent =
+                eligibility.length > 0 ? eligibility.join("; ") : "Not selected";
+
+            document.getElementById("result").style.display =
+                selected.length > 0 ? "block" : "none";
+        }
+
+        function register() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+
+            if (name === "" || email === "") {
+                alert("Please enter your name and email.");
+                return;
+            }
+
+            let selectedCourses = document.querySelectorAll(
+                '.courses input[type="checkbox"]:checked'
+            );
+
+            if (selectedCourses.length === 0) {
+                alert("Please select at least one course.");
+                return;
+            }
+
+            alert("Registration successful!");
+        }
+    </script>
+
+</body>
+</html>
